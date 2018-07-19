@@ -8,7 +8,9 @@ import java.util.Locale;
 
 public class InitialsChinaComparator implements Comparator<Object> {
 
+    // 降序
     public static final int DESC = -1 ; 
+    // 升序
     public static final int ASC = 1 ; 
     
     private int order ;
@@ -28,6 +30,7 @@ public class InitialsChinaComparator implements Comparator<Object> {
             Field[] o1Fields = getFields(o1);
             String source = "";
             String target = "";
+            // 获取字段值
             for (Field o1Field : o1Fields) {
                 CompareString compareString = o1Field.getAnnotation(CompareString.class);
                 if (compareString != null) {
@@ -35,6 +38,7 @@ public class InitialsChinaComparator implements Comparator<Object> {
                     break;
                 }
             }
+            // 获取字段值
             Field[] o2Fields = getFields(o2);
             for (Field o2Field : o2Fields) {
                 CompareString compareString = o2Field.getAnnotation(CompareString.class);
@@ -43,7 +47,7 @@ public class InitialsChinaComparator implements Comparator<Object> {
                     break;
                 }
             }
-            
+            // 比较
             Collator collator = Collator.getInstance(Locale.CHINA);
             return this.order*collator.compare(source, target);
         } catch (Exception e) {
