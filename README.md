@@ -1,5 +1,5 @@
 #### 说明
-主要是之前和别人讨论排序问题，当时碰到的问题是，需要按照中文第一个字的拼音首字母排序，百度发下自带的比较器 `Collator.getInstance(Locale.CHINA)` ，但是使用和追源码发现
+主要是之前和别人讨论排序问题，当时碰到的问题是，需要按照中文第一个字的拼音首字母排序，百度发现自带的比较器 `Collator.getInstance(Locale.CHINA)` ，但是使用和追源码发现
 ```
     @Override
     public int compare(Object o1, Object o2) {
